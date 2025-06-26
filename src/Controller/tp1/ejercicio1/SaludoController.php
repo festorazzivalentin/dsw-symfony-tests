@@ -23,11 +23,18 @@ class SaludoController extends AbstractController
     #[Route('/saludo/{nombre}', name: 'app_saludo_nombre')] 
     public function saludoNombreAction(string $nombre): Response {
         $urlHome = $this->generateUrl('app_saludo'); # Funcion generateUrl
+        $urlDespedida = $this->generateUrl('despedida_ejercicio1_nombre', ['nombre' => $nombre]); # Redirección despedida
         return new Response(
             '<html><body><h1>Bienvenido '.$nombre.'</h1>
             <p>Para volver a la página de inicio, <a href="'.$urlHome.'">haz clic aquí</a>.</p>
+            <p>Ir a <a href='.$urlDespedida.'>despedida</a>.</p>
             </body></html>'
         );
+    }
+
+    #[Route('saludo/ejercicio1/{nombre}', name: 'saludo_ejercicio1_nombre')]
+    public function saludoEjercicio1Action(string $nombre): Response {
+        return new Response('<h1>Hola, '.$nombre.'. Bienvenido/a al sistema</h1>');
     }
 
     # Dos parámetros
