@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Renderizado con Twig{% endblock %}
+
+{% block body %}
+<h1>Hola, {{ nombre }}</h1>
+<p>{{ info }}</p>
+
+<ul>
+    {% for personaje in personajes %}
+        <li>{{personaje}}</li>
+    {% endfor %}
+</ul>
+
+<h1>Datos<h1>
+<p>{{ datos }}</p>
+{% endblock %}
