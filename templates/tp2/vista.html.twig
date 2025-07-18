@@ -1,0 +1,6 @@
+{% extends 'tp2/layout_estudiantes.html.twig' %}
+{% block body %}
+    {% for estudiante in estudiantes %}
+        <li>Nombre: {{ estudiante.nombre }}, Nota: {{ estudiante.nota }}</li>
+    {% endfor %}
+{% endblock %}
