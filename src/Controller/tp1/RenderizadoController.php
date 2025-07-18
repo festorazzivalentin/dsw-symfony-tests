@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\tp1\ejercicio1;
+namespace App\Controller\tp1;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +19,7 @@ class RenderizadoController extends AbstractController
             'Yoshi'
         ];
 
-        return $this->render('tp1/ejercicio1/renderizado.html.twig', [
+        return $this->render('tp1/renderizado.html.twig', [
             'nombre' => $nombre,
             'info' => $info,
             'personajes' => $personajes

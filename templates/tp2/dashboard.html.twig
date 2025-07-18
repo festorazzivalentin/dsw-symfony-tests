@@ -1,0 +1,21 @@
+{# 
+Crear una página llamada dashboard.html.twig que utilice reutilización horizontal en Twig para mostrar: 
+1. Una tarjeta informativa (usando include) con el título “Resumen” y contenido “Bienvenido al panel de administración”. 
+2. Un panel personalizado (usando embed) donde el título sea “Notificaciones” y el cuerpo contenga un mensaje ficticio. 
+3. Dos botones generados con macro: uno con el texto “Configurar” y color success, y otro con el texto “Salir” y color danger.
+ #}
+{% include 'tp2/partials/_tarjeta.html.twig' with {
+    title: 'Include - Resumen',
+    content: 'Bienvenido al panel de administración'
+} %}
+
+{% embed 'tp2/partials/_panel.html.twig' %}
+    {% block title %}<h2>Embed - Notificaciones</h2>{% endblock %}
+    {% block body %}
+        <p>Este es un mensaje ficticio de notificación.</p>
+    {% endblock %}
+{% endembed %}
+
+{% import 'tp2/macros/_botones.html.twig' as botones %}
+{{ botones.btn('Configurar', 'success') }}
+{{ botones.btn('Salir', 'danger') }}

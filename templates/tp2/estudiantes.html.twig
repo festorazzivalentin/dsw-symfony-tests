@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Estudiantes JSON{% endblock %}
+
+{% block body %}
+
+<ul>
+    {% if estudiantes is empty %}
+        {% include 'tp2/_alerta.html.twig' with {'mensaje': 'No hay estudiantes registrados'}%}
+    {% else %}
+        {% for estudiante in estudiantes %}
+            {% embed 'tp2/_panel.html.twig' %}
+                {% block body %}
+                    <ul>
+                        <li>Id: {{ estudiante.id }}</li>
+                        <li>Nombre: {{ estudiante.nombre }}</li>
+                        {% if estudiante.nota >= 6 %}
+                            <li style="color: green; font-weight: bold;">Nota: {{ estudiante.nota }}</li>
+                        {% else %}
+                            <li>Nota: {{ estudiante.nota }}</li>
+                        {% endif %}
+                    </ul>
+                {% endblock %}
+            {% endembed %}
+        {% endfor %}
+    {% endif %}
+</ul>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\tp1\ejercicio1;
+namespace App\Controller\tp1;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
